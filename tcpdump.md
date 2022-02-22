@@ -34,7 +34,7 @@ tcpdump -A
 
 # 👨‍🔧 Paramètres de capture
 
-## Ports
+## 🍉 Ports
 
 **Capturer les paquets d'un port spécifique**
 ```bash
@@ -51,7 +51,7 @@ tcpdump port 80 or port 443
 tcpdump portange 9200-9300
 ```
 
-## Configuration des hôtes
+## 🍍 Configuration des hôtes
 
 **Capturer les paquets d'un subnet**
 ```bash
@@ -83,7 +83,7 @@ tcpdump src net 10.10.0.0/24 and dst net 192.168.100.0/24
 tcpdump host 10.10.0.1 and host 192.168.100.54
 ```
 
-## Configuration de la taille du paquet
+## 🍓 Configuration de la taille du paquet
 
 **Capturer les paquets dont la taille est supérieure à 200 bytes**
 ```bash
