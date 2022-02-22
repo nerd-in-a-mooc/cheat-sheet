@@ -4,12 +4,12 @@
 
 ### 💐 Changer d'adresse IP avec PowerShell - *netsh*
 
-1. Obtenir le nom de l'interface que l'on souhaite modifier
+1. **Obtenir le nom de l'interface que l'on souhaite modifier**
 
     ```PowerShell
     netsh interface ip show config
     ```
-2. Modifier l'adresse de l'interface
+2. **Modifier l'adresse de l'interface**
 
 - Utiliser DHCP
 
@@ -25,7 +25,7 @@
 
 ### 🌸 Changer de DNS avec PowerShell - *netsh*
 
-On utilisera les résolveurs publiques de la [FDN](https://www.fdn.fr/actions/dns/).
+**On utilisera les résolveurs publiques de la [FDN](https://www.fdn.fr/actions/dns/).**
 
 - DNS Primaire
 
