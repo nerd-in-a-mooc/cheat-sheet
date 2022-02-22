@@ -9,7 +9,7 @@
     ```PowerShell
     netsh interface ip show config
     ```
-   1. Modifier l'adresse de l'interface
+2. Modifier l'adresse de l'interface
 
 - Utiliser DHCP
 
