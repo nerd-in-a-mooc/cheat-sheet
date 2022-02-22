@@ -96,7 +96,7 @@ tcpdump not less 200 and not greater 500
 ```
 
 # 📂 Fichier de capture
----
+
 **Enregistrer la capture**
 ```bash
 tcpdump -i eth1 -w /root/capture.pcap
