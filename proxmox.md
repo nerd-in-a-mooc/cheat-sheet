@@ -1,6 +1,4 @@
-# 🦓 PROXMOX
-
-## Supprimer la subscription notice
+## 🦓 Supprimer la subscription notice
 
 **Sauvegarde du fichier de configuration**
 

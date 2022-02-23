@@ -1,8 +1,6 @@
-# 🐳 Windows
+# 🐳 Network
 
-## 🍯 Network
-
-### 💐 Changer d'adresse IP avec PowerShell - *netsh*
+## 🥙 Changer d'adresse IP avec PowerShell - *netsh*
 
 1. **Obtenir le nom de l'interface que l'on souhaite modifier**
 
@@ -23,7 +21,7 @@
     netsh interface ip set address name="Wi-Fi" static 192.168.20.10 255.255.255.0 192.168.50.1
     ```
 
-### 🌸 Changer de DNS avec PowerShell - *netsh*
+## 🌯 Changer de DNS avec PowerShell - *netsh*
 
 **On utilisera les résolveurs publiques de la [FDN](https://www.fdn.fr/actions/dns/).**
 
@@ -39,7 +37,7 @@
     netsh interface ip set dns name="Wi-Fi" 80.67.169.40 index=2
     ```    
 
-## 🍮 Git-Bash dans Windows Terminal
+# 🐋 Git-Bash dans Windows Terminal
 
 Git Bash est très pratique, mais il est encore plus pratique d'avoir tous ses terminaux dans un seul !
 
@@ -49,7 +47,7 @@ Git Bash est très pratique, mais il est encore plus pratique d'avoir tous ses t
 {
                 "acrylicOpacity": 0.75,
                 "antialiasingMode": "aliased",
-                "backgroundImage": "C:\\Users\\AIS\\Pictures\\backgrounds\\cat_250_33.gif",
+                "backgroundImage": "C:\\path_to_image.png",
                 "backgroundImageAlignment": "bottomRight",
                 "backgroundImageOpacity": 0.20000000000000001,
                 "backgroundImageStretchMode": "none",
