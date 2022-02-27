@@ -2,17 +2,17 @@
 
 #Déclaration des variables
 $Domain = "nerd"                        # Domaine
-$Ext = "mooc"  						    # Extension (com, info, lan, local....)
-$Server ="dc1.nerd.mooc" 	        	# Serveur d'exécution
-$FQDN ="@nerd.mooc"  			        # Nom du Domaine précédé de "@" cela servira pour la création du UserPrincipalName
-$LogFolder = "C:\Lognerd"			    # Emplacement du répertoire de Log
-$Folder = "Lognerd"					    # Nom du répertoire de Log
+$Ext = "mooc"                           # Extension (com, info, lan, local....)
+$Server ="dc1.nerd.mooc"                # Serveur d'exécution
+$FQDN ="@nerd.mooc"                     # Nom du Domaine précédé de "@" cela servira pour la création du UserPrincipalName
+$LogFolder = "C:\Lognerd"               # Emplacement du répertoire de Log
+$Folder = "Lognerd"                     # Nom du répertoire de Log
 $LogFile = "C:\Lognerd\LogScript.txt"   # Emplacement du fichiers de Log du script
-$File = "LogScript.txt" 			    # Nom du fichier de Log du script
+$File = "LogScript.txt"                 # Nom du fichier de Log du script
 $LogError = "C:\Lognerd\LogError.txt"   # Emplacement du fichier d'erreur global
 $LogCatch = "C:\Lognerd\LogCatch.txt"   # Emplacement du fichier de gestion de l'erreur
-$FileCatch = "LogCatch.txt" 		    # Nom du fichier de gestion de l'erreur
-$CSV = "C:\Import_Users.csv"		    # Chemin d'accès à votre fichier csv
+$FileCatch = "LogCatch.txt"             # Nom du fichier de gestion de l'erreur
+$CSV = "C:\Import_Users.csv"            # Chemin d'accès à votre fichier csv
 
 # Repertoire pour les logs si non existant
 

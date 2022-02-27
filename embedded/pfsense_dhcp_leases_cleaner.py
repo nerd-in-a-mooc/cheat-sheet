@@ -1,4 +1,4 @@
-# MANY THANKS TO JUSTTUGA
+# MANY THANKS TO @JUSTTUGA
 
 import os
 import subprocess
