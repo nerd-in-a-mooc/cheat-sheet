@@ -1,6 +1,21 @@
-# :boar: Hardening
+# 🐽 Hardening
 
-Règles IPtables
+These configurations aren't perfect, but one can find them useful as a fully functional starting point.
+
+## 🍳 Iptables-persistent
+
+Install this package. Rules will survive a reboot, no script needed.
+
+```shell
+apt -y install iptables-persistent
+```
+
+Try these rules as a starting point.
+
+- `/etc/iptables/rules.v4`
+
+<details>
+    <summary>click to see the configuration file.</summary>
 
 ```bash
 ##############################################
@@ -33,11 +48,35 @@ iptables -A INPUT -i eth1 -p tcp --dport 443 -j ACCEPT
 iptables -A INPUT -j DROP
 ```
 
+</details>
+
+Save them !
+
 ```bash
 iptables-save > /etc/iptables/rules.v4
 ```
 
-## Désactiver les signatures Apache
+And check them !
+
+```shell
+iptables -L
+```
+
+Or flush them if anything went wrong !
+
+```shell
+iptables -F
+```
+
+Restore them !
+
+```bash
+iptables-restore < /etc/iptables/rules.v4
+```
+
+You can edit your `/etc/iptables/rules.v4` file or add them one by one to add or remove rules.
+
+## 🥘 Disable Apache signatures
 
 ```bash
 echo "" >> /etc/apache2/apache2.conf
@@ -46,28 +85,27 @@ echo "ServerTokens Prod" >> /etc/apache2/apache2.conf
 echo "ServerSignature Off" >> /etc/apache2/apache2.conf
 ```
 
-## Redirection des erreurs
+## 🍲 Error redirection
+
+Create / use a redirection for error pages. Use them in `apache2.conf` or in your vHOST configuration file. 
 
 ```bash
 ErrorDocument 404 https://http.cat/404
 ErrorDocument 301 https://http.cat/301
 ```
 
-## Fail2ban
+## 🥣 Fail2ban
 
----
+These are good !
 
 - [Roque Night Rules](https://github.com/RoqueNight/Fail2Ban-Filters)
 
-```bash
-cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
-```
-
-### Configuration
-
----
+### 🌱 Configuration
 
 - `/etc/fail2ban/jail.local`
+
+<details>
+    <summary>click to see the configuration file.</summary>
 
 ```bash
 [DEFAULT]
@@ -170,9 +208,9 @@ logpath = /var/log/apache2/
 maxretry = 1
 ```
 
-### Règles
+</details>
 
----
+### 🌳 Règles
 
 - `/etc/fail2ban/filter.d/apache-404.conf`
 
@@ -192,9 +230,6 @@ ignoreregex =
 
 - `/etc/fail2ban/filter.d/apache-nohacking.conf`
 
-<details>
-    <summary>more</summary>
-
 ```bash
 [Definition]
 badbotscustom = EmailCollector|ApacheBench/2.3|Python-urlib/2.7|curl/7.52.1|curl/7.40.0|nmap|Nessus|libwww-perl/6.13|python-requests/2.9.1|VEGA123|Ruby|Vega/1.0|python-requests/2.12.3|muhstik-scan|zgrab/0.x|Telesphoreo|Grabber|curl|CURL|Googlebot/2.1|sqlmap|W3C_Validator/1.3 http://validator.w3.org/services|masscan/1.0 (https://github.com/robertdavidgraham/masscan)|Go-http-client/1.1|python-requests/2.18.4|Mozilla/5.0 zgrab/0.x|Python-urllib/2.7|masscan|HTTrack|Baiduspider|wpscan|Acunetix|sysscan|Nmap Scripting Engine|Nikto/2.1.6|commix/v2.2-stable|curl/7.55.1|UserAgent|Wget/1.19.1 (linux-gnu)|wget|Wget|WebEMailExtrac|TrackBack/1\.02|sogou music spider
@@ -202,7 +237,6 @@ badbots       = Atomic_Email_Hunter/4\.0|atSpider/1\.0|autoemailspider|bwh3_user
 failregex     = ^<HOST> -.*"(GET|POST|HEAD).*HTTP.*"(?:%(badbots)s|%(badbotscustom)s)"$
 ignoreregex   =
 ```
-</details>
 
 - `/etc/fail2ban/filter.d/apache-osinjection`
 
@@ -239,9 +273,12 @@ ignoreregex =
 systemctl restart fail2ban.service
 ```
 
-## Hardening vHost SSL
+## 🥗 Hardening vHOST SSL
 
----
+Use this excellent [SSL Configuration Generator](https://ssl-config.mozilla.org/) by moz://a :
+
+<details>
+    <summary>Example of a hardened vHOST</summary>
 
 ```bash
 <IfModule mod_ssl.c>
@@ -292,3 +329,5 @@ SSLCertificateKeyFile /etc/letsencrypt/live/catnap.fr/privkey.pem
 </VirtualHost>
 </IfModule>
 ```
+
+</details>
