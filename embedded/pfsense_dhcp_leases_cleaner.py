@@ -26,7 +26,7 @@ with open(lease_file) as input:
                     del lines[6]
         # au cas où le fichier ne contient pas de baux actifs
         else:
-        i = len(lines)
+            i = len(lines)
             while i > 6:
                 del lines[i-1]
                 i = i - 1
